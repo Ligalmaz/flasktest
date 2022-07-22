@@ -163,5 +163,6 @@ def f_enregistrer_informations():
                           t_date = f_date,
                           t_commentaire = f_commentaire)
  
- if __name__ == "__main__" :
+
+if __name__ == "__main__" :
    app.run()

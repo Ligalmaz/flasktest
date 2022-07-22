@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{t_titre}}</h1>
+    
+    <p>Vous souhaitez nous contacter ? </p>
+
+    {% if request.method == 'POST' %} 
+    <h2>Votre réponse au formulaire : </h2>
+    <h4>Votre nom : {{t_nom}}</h4>
+    <h4>Votre prénom : {{t_prenom}}</h4>
+    <h4>Votre adresse email : {{t_email}}</h4>
+    <h4>Votre demande : {{t_demande}}</h4>
+    {% else %} 
+    <form method="POST">
+      <div><label>Votre nom : <input type="text" name="nom"></label></div>
+      <div><label>Votre prénom : <input type="text" name="prenom"></label></div>
+      <div><label>Votre adresse email : <input type="email" name="email"></label></div>
+      <div><label>Votre demande : <input type="text" name="demande"></label></div>
+      
+      <br>
+      <input type="submit" value="Envoyer" class="btn btn-outline-warning">
+    </form>
+
+    {% endif %}
+
+{% endblock %}

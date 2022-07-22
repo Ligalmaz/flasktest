@@ -1,0 +1,78 @@
+h1 { 
+    color: white;
+    background-color: green;
+    border-radius: 25px;
+    text-align: center;
+    font-family: "Georgia";
+ 
+   }
+
+footer{ 
+    text-align: center;
+    font-family: "Georgia";
+    }
+
+.navbar-brand 
+    { color: gray;
+        text-align: center;
+        font-family: "Georgia"; 
+        font-size: 8px;       
+    }
+
+.nav-item
+    { color: white;
+    text-align: center;
+    font-family: "Georgia";
+    background: linear-gradient(lightgreen, green);
+    border-radius: 15px;
+    font-style: white;    
+    font-size: 20px;
+    }
+
+    ul.nav li a, ul.nav li a:visited {
+        color: white;
+         }
+    
+    ul.nav li a:hover, ul.nav li a:active {
+        color: black;
+        background-color: greenyellow;
+    }
+
+
+/* Modify brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: green;
+}
+
+p{
+    text-align: justify;
+}
+
+.footer {
+    position: relative;
+    margin-top: 300px; /* negative value of footer height */
+    height: 150px;
+    clear:both;
+    padding-top:20px;
+  }     
+
+  table,
+  td {
+      border: 1px solid #333;
+      width : 700px;
+      padding: 1% 1%;
+      box-sizing: border-box;
+
+  }
+  
+  thead,
+  tfoot {
+      background-color: #333;
+      color: #fff;
+  }
+  
+h4 {
+    text-align: center;
+    font-style: italic;
+}

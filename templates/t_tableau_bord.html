@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if v_tableau_kms != "" %}
+
+<h1>{{t_titre}}</h1>
+
+<div class="container">
+    <div class="row row-cols-2">
+
+        <div class="col">
+            <div class="row"><h4>Total des kms parcourus</h4>
+                <div class ="col">
+                    <br>
+                    <img src="{{url_for('static', filename='images/route.png')}}" width="200" height="400" />
+                </div>
+
+                <div class ="col">
+                    <br>
+                    <br>
+                    <br>
+                Depuis le début de l'aventure, les conducteurs ayant répondu au questionnaire ont parcouru <b>{{t_total_kms_parcourus[0]}} kms</b> au total.
+                </div>
+            </div>
+        </div>
+
+        <div class="col"><h4>Nombre de kilomètres parcourus par type de véhicule</h4>
+            <div style="width:400px; height:400px;">
+            <canvas id="graph_kms_par_vehicule"></canvas>
+            <script type="text/javascript" 
+                    src="{{ url_for('static', filename='js/graphique.js') }}">
+            </script>
+            <script type="text/javascript"> 
+                graphique_kms_par_vehicule({{t_label_vehicules|tojson}}, {{t_kms_vehicules|tojson}})
+            </script>
+            </div>
+        </div>
+    
+    <div class="col"><br><h4>Palmarès des conducteurs ayant le plus roulé</h4>
+        <div style="width:400px; height:1000px;">
+            <canvas id="graph_kms_par_chauffeur"></canvas>
+            <script type="text/javascript" 
+                    src="{{ url_for('static', filename='js/graphique.js') }}">
+            </script>
+            <script type="text/javascript"> 
+                graphique_kms_par_chauffeur({{t_label_chauffeurs|tojson}}, {{t_kms_chauffeurs|tojson}})
+            </script>
+        </div>
+    </div>
+
+    <div class="col"><br><h4>Nombre de kilomètres parcourus par jour
+        <div style="width:400px; height:1000px;">
+            <canvas id="graph_kms_par_jour"></canvas>
+            <script type="text/javascript" 
+                    src="{{ url_for('static', filename='js/graphique.js') }}">
+            </script>
+            <script type="text/javascript"> 
+                graphique_kms_par_jour({{t_kms_dates|tojson}}, {{t_kms_par_jour|tojson}})
+            </script>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+{% else %}
+{{t_titre}}
+
+<p>Pour le moment, aucun chauffeur n'a renseigné de données.</p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% if t_liste_chauffeurs != "" %}
+    <h1>{{t_titre}}</h1>
+    
+    <p>Depuis le lancement de cette application, <strong>{{t_nb_chauffeurs[0]}} salariés</strong> salariés ont répondu au questionnaire.</p>
+
+    <p>Ci-dessous la liste de tous les conducteurs ayant répondus : </p>
+
+   
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Nom du chauffeur</th>
+        <th scope="col">Type de véhicule</th>
+        <th scope="col">Date</th>
+        <th scope="col">Kilométrage</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for item in t_liste_chauffeurs %}
+
+        {% for i in range(t_liste_identites | length) %}
+            
+           {% if item[0] == t_liste_identites[i][0] %}
+
+              {% if t_liste_identites[i][1] == 'M.' %}
+        <tr>
+            <td><font color="blue">{{ item[0] }}</font></td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+        </tr>
+        {% else %}
+            <td><font color="green">{{ item[0] }}</font></td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <!-- <td><form action="blah" method="POST">
+              <button class='btn' type="submit" name="remove_levels" value="delete">
+                  <span class="fa fa-times"></span> Supprimer
+              </button>
+          </form></td> -->
+        
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+  </table>
+
+  {% else %}  
+  <h1>{{t_titre}}</h1>
+    
+  <p>Pour le moment, aucun chauffeur n'a renseigné de données.</p>
+
+  {% endif %}   
+
+
+{% endblock %}
+
+
+
+

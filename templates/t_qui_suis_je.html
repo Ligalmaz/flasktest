@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Qui suis-je ?</h1>
+
+    Je m'appelle
+        {{t_identite.nom.title()}}
+        {{t_identite.prenom}}
+    
+</br>
+</b
+   {% for competence in t_competences %}
+   <li>{{ competence }}</li>
+   {% endfor %}
+
+<br>
+   Je suis un expert en <strong>{{ t_competences[0] }}</strong>
+
+<br>
+<br>
+
+   {% for competence in t_competences %}
+    {% if competence == "Python" %}
+        Je connais le langage {{competence}}
+    {% endif %}
+   {% endfor %}
+<br>
+
+    {% if "Python" is in t_competences %}
+        Je connais très bien le langage Python.
+    {% endif %}
+
+    
+{% endblock %}

@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+<h1>{{t_titre}}</h1>
+
+{% if t_nom %}
+  Merci d'avoir renseigné le questionnaire {{ t_nom.capitalize() }}
+  <br>
+  {% if t_kilometrage > 1000 %}
+  <font color="fuchsia">Tu as bien roulé ! </font>
+  {% else %} 
+  {% if t_kilometrage < 1000 %}
+  <font color="green">J'espère que tu as passé une bonne journée </font>
+  {% endif %}
+  {% endif %}
+{% else %}
+
+      <form method="POST">
+          {{ html_formulaire.hidden_tag()}}
+          {{ html_formulaire.wtf_nom.label(class="form-label") }}
+          {{ html_formulaire.wtf_nom() }}
+          <br>
+          {{ html_formulaire.wtf_vehicule.label(class="form-label") }}
+          {{ html_formulaire.wtf_vehicule() }}
+          <br>
+          {{ html_formulaire.wtf_kilometrage.label(class="form-label") }}
+          {{ html_formulaire.wtf_kilometrage() }}  
+          <br>
+          {{ html_formulaire.wtf_date.label(class="form-label") }}
+          {{ html_formulaire.wtf_date() }}  
+          <br>
+          {{ html_formulaire.wtf_commentaire.label(class="form-label") }}
+          {{ html_formulaire.wtf_commentaire() }}  
+          <br>
+          {{ html_formulaire.wtf_envoyer(class="btn btn-outline-warning")}} 
+          
+      </form>
+
+{% endif %}
+
+
+
+
+   
+{% endblock %}
+
